@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dudley — Le crack · Spectacle Tournesol 🌻</title>
+<meta name="description" content="Dudley, humoriste marseillais. Stand-up, sketchs et son spectacle « Tournesol » en tournée : Marseille, Paris, Lyon.">
+<meta property="og:title" content="Dudley — Tournesol 🌻">
+<meta property="og:description" content="Stand-up, sketchs, et un spectacle qui pose la vraie question : avons-nous le courage de briller par nous-mêmes ?">
+<meta property="og:image" content="photos/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --noir:#0b0b0b; --noir2:#151515; --jaune:#FFC90E; --jaune2:#FFB000;
+    --creme:#FFF6DA; --gris:#9a9a9a; --rouge:#FF4D2E;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--noir);color:var(--creme);font-family:Inter,system-ui,sans-serif;line-height:1.55;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{width:min(1180px,92vw);margin-inline:auto}
+  .display{font-family:Anton,Impact,sans-serif;text-transform:uppercase;letter-spacing:.01em;line-height:.9}
+  .marker{font-family:"Permanent Marker",cursive}
+
+  /* NAV */
+  nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;justify-content:space-between;align-items:center;
+      padding:14px 4vw;background:linear-gradient(#0b0b0bee,#0b0b0b00)}
+  .logo{font-family:Anton;font-size:28px;letter-spacing:.02em}
+  .logo span{color:var(--jaune)}
+  .nav-links{display:flex;gap:26px;font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.08em}
+  .nav-links a:hover{color:var(--jaune)}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
+       font-size:14px;padding:14px 22px;border-radius:999px;transition:transform .15s,box-shadow .15s}
+  .btn-j{background:var(--jaune);color:var(--noir);box-shadow:5px 5px 0 var(--creme)}
+  .btn-j:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--creme)}
+  .btn-o{border:2px solid var(--creme)}
+  .btn-o:hover{background:var(--creme);color:var(--noir)}
+  @media(max-width:820px){.nav-links{display:none}}
+
+  /* HERO */
+  .hero{min-height:100svh;position:relative;display:grid;align-items:end;padding:120px 0 70px;isolation:isolate}
+  .hero-bg{position:absolute;inset:0;z-index:-2;background:
+      radial-gradient(60% 50% at 75% 35%,#ffc90e33,transparent 70%),
+      radial-gradient(40% 40% at 10% 90%,#ff4d2e22,transparent 70%),var(--noir)}
+  .hero-photo{position:absolute;right:0;top:0;bottom:0;width:min(55vw,720px);z-index:-1;
+      -webkit-mask-image:linear-gradient(90deg,transparent,#000 35%);mask-image:linear-gradient(90deg,transparent,#000 35%)}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(1.1) contrast(1.05)}
+  .hero-photo .ph{width:100%;height:100%}
+  .kicker{display:inline-block;background:var(--jaune);color:var(--noir);font-weight:800;font-size:13px;letter-spacing:.14em;
+          text-transform:uppercase;padding:6px 12px;transform:rotate(-2deg);margin-bottom:22px}
+  .hero h1{font-size:clamp(96px,22vw,300px)}
+  .hero h1 .crack{display:block;font-family:"Permanent Marker";text-transform:none;color:var(--jaune);
+       font-size:clamp(44px,8vw,110px);transform:rotate(-4deg);margin:-.15em 0 0 .3em;line-height:1}
+  .hero p.lead{max-width:520px;font-size:clamp(17px,2vw,21px);margin:28px 0 34px;color:#e9e2c8}
+  .hero .ctas{display:flex;gap:16px;flex-wrap:wrap}
+  .scroll{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);font-size:12px;letter-spacing:.3em;color:var(--gris)}
+
+  /* MARQUEE */
+  .marquee{background:var(--jaune);color:var(--noir);overflow:hidden;transform:rotate(-1.5deg);margin:10px -2vw;
+           border-block:3px solid var(--noir)}
+  .marquee .track{display:flex;width:max-content;animation:defil 28s linear infinite}
+  .marquee span{font-family:Anton;font-size:clamp(28px,4vw,48px);text-transform:uppercase;padding:14px 0;white-space:nowrap}
+  .marquee span::after{content:"🌻";margin:0 28px}
+  @keyframes defil{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.marquee .track{animation:none}}
+
+  section{padding:110px 0}
+  .sec-title{font-size:clamp(54px,9vw,120px);margin-bottom:40px}
+  .sec-title em{font-style:normal;color:var(--jaune)}
+  .tag{color:var(--jaune);font-weight:800;text-transform:uppercase;letter-spacing:.2em;font-size:13px;margin-bottom:14px;display:block}
+
+  /* SPECTACLE */
+  .show{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:center}
+  .poster{aspect-ratio:4/5;position:relative;border-radius:6px;overflow:hidden;box-shadow:14px 14px 0 var(--jaune)}
+  .poster img{width:100%;height:100%;object-fit:cover}
+  .poster .badge{position:absolute;top:18px;left:18px;background:var(--noir);color:var(--jaune);font-family:Anton;
+       font-size:22px;padding:8px 14px;text-transform:uppercase}
+  .show h3{font-size:clamp(40px,6vw,76px);margin-bottom:18px}
+  .question{font-family:"Permanent Marker";font-size:clamp(24px,3vw,34px);color:var(--jaune);line-height:1.2;margin-bottom:24px}
+  .show p{color:#d9d2b8;margin-bottom:16px;max-width:520px}
+  .facts{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 32px}
+  .facts li{list-style:none;border:1.5px solid #ffffff33;border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600}
+  @media(max-width:900px){.show{grid-template-columns:1fr}}
+
+  /* DATES */
+  #dates{background:var(--creme);color:var(--noir)}
+  #dates .sec-title em{color:var(--rouge)}
+  .date{display:grid;grid-template-columns:150px 1fr auto;gap:24px;align-items:center;padding:26px 0;border-top:2px solid var(--noir)}
+  .date:last-of-type{border-bottom:2px solid var(--noir)}
+  .date .d{font-family:Anton;font-size:44px;line-height:1;text-transform:uppercase}
+  .date .d small{display:block;font-family:Inter;font-size:13px;font-weight:800;letter-spacing:.12em;color:#555;margin-top:6px}
+  .date .ville{font-family:Anton;font-size:clamp(30px,4vw,48px);text-transform:uppercase;line-height:1}
+  .date .salle{font-weight:600;color:#444;margin-top:6px}
+  .date .btn-n{background:var(--noir);color:var(--jaune);padding:14px 22px;border-radius:999px;font-weight:800;
+       text-transform:uppercase;font-size:14px;letter-spacing:.06em;white-space:nowrap}
+  .date .btn-n:hover{background:var(--rouge);color:#fff}
+  .sold{position:relative}
+  .sold .btn-n{background:transparent;color:var(--noir);border:2px dashed var(--noir);pointer-events:none}
+  .stamp{font-family:"Permanent Marker";color:var(--rouge);font-size:28px;transform:rotate(-8deg);display:inline-block;margin-left:10px}
+  .note{margin-top:26px;font-size:14px;color:#555}
+  @media(max-width:700px){.date{grid-template-columns:1fr;gap:10px}}
+
+  /* UNIVERS */
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .card{background:var(--noir2);border:1px solid #ffffff14;border-radius:8px;padding:28px 24px 30px;position:relative;transition:transform .2s,border-color .2s}
+  .card:hover{transform:translateY(-6px) rotate(-.6deg);border-color:var(--jaune)}
+  .card .n{font-family:Anton;font-size:64px;color:var(--jaune);line-height:1;margin-bottom:14px}
+  .card h4{font-family:Anton;font-size:28px;text-transform:uppercase;margin-bottom:10px;line-height:1}
+  .card p{color:#bdb6a0;font-size:15px}
+  @media(max-width:1000px){.grid4{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.grid4{grid-template-columns:1fr}}
+
+  /* CHIFFRES */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-block:1px solid #ffffff22;margin-top:70px}
+  .stat{padding:40px 20px;text-align:center;border-right:1px solid #ffffff22}
+  .stat:last-child{border-right:0}
+  .stat b{display:block;font-family:Anton;font-size:clamp(54px,8vw,96px);color:var(--jaune);line-height:1}
+  .stat span{text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:600;color:var(--gris)}
+  @media(max-width:700px){.stats{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid #ffffff22}}
+
+  /* GALERIE */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:12px}
+  .gallery figure{border-radius:6px;overflow:hidden;position:relative}
+  .gallery figure:nth-child(1){grid-column:span 2;grid-row:span 2}
+  .gallery figure:nth-child(4){grid-row:span 2}
+  .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .4s,filter .4s;filter:grayscale(.3)}
+  .gallery figure:hover img{transform:scale(1.05);filter:none}
+  @media(max-width:800px){.gallery{grid-template-columns:1fr 1fr;grid-auto-rows:180px}}
+
+  /* placeholder photo (s'affiche tant que la vraie photo n'est pas déposée) */
+  .ph{display:grid;place-items:center;text-align:center;width:100%;height:100%;
+      background:repeating-linear-gradient(45deg,#1b1b1b 0 14px,#161616 14px 28px);color:#6b6b6b;
+      font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:12px}
+  .ph::before{content:"🌻";display:block;font-size:34px;margin-bottom:8px;filter:grayscale(.4)}
+
+  /* AVIS */
+  #avis{background:var(--jaune);color:var(--noir)}
+  #avis .sec-title em{color:var(--creme);-webkit-text-stroke:2px var(--noir)}
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .quote{background:var(--noir);color:var(--creme);padding:30px;border-radius:8px;transform:rotate(var(--r,0deg))}
+  .quote p{font-family:"Permanent Marker";font-size:24px;line-height:1.25;margin-bottom:18px}
+  .quote small{color:var(--jaune);font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:12px}
+  .score{display:flex;align-items:baseline;gap:16px;margin-bottom:40px}
+  .score b{font-family:Anton;font-size:clamp(80px,12vw,150px);line-height:.85}
+  .score span{font-weight:800;text-transform:uppercase;letter-spacing:.1em}
+  @media(max-width:900px){.quotes{grid-template-columns:1fr}}
+
+  /* CONTACT */
+  .contact{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:start}
+  .contact-box{background:var(--noir2);border:1px solid #ffffff1a;border-radius:10px;padding:34px}
+  .contact-box h4{font-family:Anton;text-transform:uppercase;font-size:26px;margin-bottom:6px}
+  .contact-box p{color:#bdb6a0;margin-bottom:20px}
+  .contact-box a.mail{display:block;font-weight:800;color:var(--jaune);font-size:20px;margin-bottom:24px;word-break:break-all}
+  .socials{display:flex;gap:12px;flex-wrap:wrap}
+  @media(max-width:900px){.contact{grid-template-columns:1fr}}
+
+  footer{padding:50px 0 40px;border-top:1px solid #ffffff1a;color:var(--gris);font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+  footer .big{font-family:Anton;font-size:clamp(70px,16vw,220px);color:#1a1a1a;line-height:.8;text-transform:uppercase;
+       text-align:center;margin-top:30px;user-select:none}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+  .rv.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#top" class="logo">DUDLEY<span>.</span></a>
+  <div class="nav-links">
+    <a href="#spectacle">Tournesol</a>
+    <a href="#dates">Dates</a>
+    <a href="#univers">Univers</a>
+    <a href="#avis">Avis</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a class="btn btn-j" href="#dates">Billets 🌻</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-photo">
+    <!-- PHOTO : déposer photos/hero.jpg (portrait vertical, fond neutre) -->
+    <img src="photos/hero.jpg" alt="Dudley sur scène" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'ph',textContent:'photos/hero.jpg'}))">
+  </div>
+  <div class="wrap">
+    <span class="kicker">Humoriste · Marseille</span>
+    <h1 class="display">Dudley<span class="crack">le crack</span></h1>
+    <p class="lead">Je lâcherai jamais le pressing. Stand-up, sketchs, réacts — et un spectacle, <strong>Tournesol</strong>, qui remplit les salles de Marseille à Paris.</p>
+    <div class="ctas">
+      <a class="btn btn-j" href="#dates">Voir les dates</a>
+      <a class="btn btn-o" href="https://www.instagram.com/dudleylecrack/" target="_blank" rel="noopener">@dudleylecrack</a>
+    </div>
+  </div>
+  <div class="scroll">SCROLL ↓</div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track">
+  <span>Tournesol en tournée</span><span>Paris complet</span><span>Marseille 29 novembre</span><span>Toulouse 5 mars</span><span>Je lâcherai jamais le pressing</span>
+  <span>Tournesol en tournée</span><span>Paris complet</span><span>Marseille 29 novembre</span><span>Toulouse 5 mars</span><span>Je lâcherai jamais le pressing</span>
+</div></div>
+
+<!-- SPECTACLE -->
+<section id="spectacle">
+  <div class="wrap show">
+    <div class="poster rv">
+      <!-- PHOTO : déposer photos/affiche-tournesol.jpg (affiche officielle) -->
+      <img src="photos/affiche-tournesol.jpg" alt="Affiche du spectacle Tournesol" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'ph',textContent:'photos/affiche-tournesol.jpg'}))">
+      <div class="badge">Le spectacle</div>
+    </div>
+    <div class="rv">
+      <span class="tag">One man show · Stand-up</span>
+      <h3 class="display">Tournesol 🌻</h3>
+      <p class="question">« Avons-nous le courage de briller par nous-mêmes ? »</p>
+      <p>Dans Tournesol, Dudley parle d'identité, de famille, d'amour et du courage d'être soi — avec des anecdotes perso, des scénarios complètement barrés et une gestuelle qui fait le travail toute seule.</p>
+      <p>Drôle, tendre, parfois sur des sujets pas faciles : on rit fort, et on ressort un peu plus droit, tourné vers la lumière.</p>
+      <ul class="facts">
+        <li>⏱ 1h15</li><li>🎤 Stand-up</li><li>🔞 Public adulte</li><li>⭐ 10/10 spectateurs</li>
+      </ul>
+      <a class="btn btn-j" href="https://www.scan.page/p/NVHAb3" target="_blank" rel="noopener">Réserver ma place</a>
+    </div>
+  </div>
+</section>
+
+<!-- DATES -->
+<section id="dates">
+  <div class="wrap">
+    <span class="tag" style="color:var(--rouge)">Tournée</span>
+    <h2 class="sec-title display rv">Les <em>dates</em></h2>
+
+    <div class="date rv">
+      <div class="d">29 nov.<small>2026</small></div>
+      <div><div class="ville">Marseille</div><div class="salle">À la maison 🏠</div></div>
+      <a class="btn-n" href="https://www.scan.page/p/NVHAb3" target="_blank" rel="noopener">Billets</a>
+    </div>
+
+    <div class="date sold rv">
+      <div class="d">→ 10 janv.<small>Jusqu'en 2027</small></div>
+      <div><div class="ville">Paris <span class="stamp">Complet !</span></div><div class="salle">Cartel Comedy Club · Châtelet</div></div>
+      <span class="btn-n">Complet</span>
+    </div>
+
+    <div class="date rv">
+      <div class="d">14 déc.<small>2026</small></div>
+      <div><div class="ville">Lyon</div><div class="salle">Le Complexe Café-Théâtre · 7 rue des Capucins</div></div>
+      <a class="btn-n" href="https://www.scan.page/p/NVHAb3" target="_blank" rel="noopener">Billets</a>
+    </div>
+
+    <div class="date rv">
+      <div class="d">5 mars<small>2027</small></div>
+      <div><div class="ville">Toulouse</div><div class="salle">3T Café Théâtre</div></div>
+      <a class="btn-n" href="https://www.scan.page/p/NVHAb3" target="_blank" rel="noopener">Billets</a>
+    </div>
+
+    <p class="note">D'autres villes arrivent. Toutes les dates et la billetterie à jour : <a href="https://www.scan.page/p/NVHAb3" style="text-decoration:underline;font-weight:800">lien tournée officiel</a>.</p>
+  </div>
+</section>
+
+<!-- UNIVERS -->
+<section id="univers">
+  <div class="wrap">
+    <span class="tag">Ce qu'il fait</span>
+    <h2 class="sec-title display rv">L'univers <em>Dudley</em></h2>
+    <div class="grid4">
+      <div class="card rv"><div class="n">01</div><h4>Stand-up</h4><p>Le spectacle Tournesol en tournée, après un premier seul-en-scène, « T'es qui toi ? ».</p></div>
+      <div class="card rv"><div class="n">02</div><h4>Comedy club</h4><p>Résident du Garage Comedy Club à Marseille, là où tout a commencé.</p></div>
+      <div class="card rv"><div class="n">03</div><h4>Sketchs & séries</h4><p>Parodies, séries courtes, situations de couple qu'on a tous vécues. Format Reels.</p></div>
+      <div class="card rv"><div class="n">04</div><h4>Réacts</h4><p>L'actu, les tendances et les vidéos virales passées au filtre Dudley.</p></div>
+    </div>
+
+    <div class="stats rv">
+      <div class="stat"><b data-count="114">0</b><span>K abonnés Instagram</span></div>
+      <div class="stat"><b>2,8M</b><span>vues sur un seul Reel</span></div>
+      <div class="stat"><b>10/10</b><span>note des spectateurs</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie" style="padding-top:0">
+  <div class="wrap">
+    <span class="tag">Sur scène & en vidéo</span>
+    <h2 class="sec-title display rv">Ça <em>tourne</em></h2>
+    <!-- PHOTOS : déposer photos/galerie-1.jpg à galerie-6.jpg -->
+    <div class="gallery rv">
+      <figure><img src="photos/galerie-1.jpg" alt="Dudley sur scène" onerror="this.closest('figure').remove();checkGal()"></figure>
+      <figure><img src="photos/galerie-2.jpg" alt="" onerror="this.closest('figure').remove();checkGal()"></figure>
+      <figure><img src="photos/galerie-3.jpg" alt="" onerror="this.closest('figure').remove();checkGal()"></figure>
+      <figure><img src="photos/galerie-4.jpg" alt="" onerror="this.closest('figure').remove();checkGal()"></figure>
+      <figure><img src="photos/galerie-5.jpg" alt="" onerror="this.closest('figure').remove();checkGal()"></figure>
+      <figure><img src="photos/galerie-6.jpg" alt="" onerror="this.closest('figure').remove();checkGal()"></figure>
+    </div>
+    <div style="text-align:center;margin-top:36px">
+      <a class="btn btn-o" href="https://www.instagram.com/dudleylecrack/" target="_blank" rel="noopener">Toutes les vidéos sur Instagram →</a>
+    </div>
+  </div>
+</section>
+
+<!-- AVIS -->
+<section id="avis">
+  <div class="wrap">
+    <span class="tag" style="color:var(--noir)">Ils sont venus</span>
+    <h2 class="sec-title display rv">Le public <em>valide</em></h2>
+    <div class="score rv"><b>10/10</b><span>sur 139 avis<br>BilletRéduc</span></div>
+    <div class="quotes">
+      <div class="quote rv" style="--r:-1.5deg"><p>« Dudley, c'est vraiment un crack. »</p><small>Spectatrice · Marseille</small></div>
+      <div class="quote rv" style="--r:1deg"><p>« Un flow de dingue, des scénarios complètement barrés. »</p><small>Spectateur · BilletRéduc</small></div>
+      <div class="quote rv" style="--r:-.5deg"><p>« Extrêmement drôle, sensible, intelligent. »</p><small>Avis spectateurs · BilletRéduc</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap contact">
+    <div class="rv">
+      <span class="tag">Pros, salles, marques</span>
+      <h2 class="sec-title display">On <em>bosse</em> ensemble ?</h2>
+      <p style="color:#bdb6a0;max-width:480px">Programmation, plateaux, festivals, partenariats ou collabs vidéo : écrivez directement, l'équipe répond vite.</p>
+    </div>
+    <div class="contact-box rv">
+      <h4>Booking & presse</h4>
+      <p>Production, programmation, interviews.</p>
+      <a class="mail" href="https://ig.me/m/dudleylecrack" target="_blank" rel="noopener">Écrire à @dudleylecrack →</a>
+      <h4>Partenariats & collabs</h4>
+      <p>Placements, collabs, contenus de marque.</p>
+      <div class="socials">
+        <a class="btn btn-j" href="https://www.instagram.com/dudleylecrack/" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn btn-o" href="https://www.scan.page/p/NVHAb3" target="_blank" rel="noopener">Tournée</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="y"></span> Dudley — Tous droits réservés</span>
+    <span>Fait à Marseille 🌻</span>
+  </div>
+  <div class="big">Tournesol</div>
+</footer>
+
+<script>
+  function checkGal(){const g=document.querySelector('.gallery');if(g&&g.children.length<3)document.getElementById('galerie').style.display='none';}
+  document.getElementById('y').textContent = new Date().getFullYear();
+  // apparition au scroll
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.15});
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+  // compteur abonnés
+  const c = document.querySelector('[data-count]');
+  new IntersectionObserver((es, o) => es.forEach(e => {
+    if (!e.isIntersecting) return; o.disconnect();
+    const end = +c.dataset.count, t0 = performance.now();
+    const step = t => { const p = Math.min((t - t0) / 1200, 1); c.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))) + 'K'; if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  })).observe(c);
+</script>
+</body>
+</html>
